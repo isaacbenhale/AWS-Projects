@@ -6,4 +6,6 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+# https://awscli.amazonaws.com/v2/documentation/api/2.1.29/reference/s3api/create-bucket.html
+
 aws s3api create-bucket --bucket $1
