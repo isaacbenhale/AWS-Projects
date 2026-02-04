@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "==create bucket"
+
 #check for bucket name, -z "$1" est vrai si le 1er agument est vide...
 if [ -z "$1" ]; then
   echo "Il faut un nom de bucket, exple ./...create-bucket my-bucket-name"
@@ -8,4 +10,8 @@ fi
 
 # https://awscli.amazonaws.com/v2/documentation/api/2.1.29/reference/s3api/create-bucket.html
 
-aws s3api create-bucket --bucket $1
+aws s3api create-bucket --bucket $1 \
+--region ca-central-1 \
+--create-bucket-configuration LocationConstraint=ca-central-1 \
+--query Location \
+--output text \

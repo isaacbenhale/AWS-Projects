@@ -1,1 +1,25 @@
 #!/usr/bin/env bash
+CURRENT_DIR=./s3/bash-scripts/FILES
+
+echo "==creating folder..."
+mkdir -p "$CURRENT_DIR"
+
+echo "==creating files..."
+for i in {1..5}; do
+  touch "$CURRENT_DIR/fichier$i.txt"
+  echo "Working on bash-scripting with the file $i" > "$CURRENT_DIR/fichier$i.txt"
+done
+
+tree $CURRENT_DIR
+
+echo "==Transfering on aws s3 bucket..."
+
+#check for 2 arguments, $1 for the file folder and $2 for the bucket name..
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 <bucket-name>"
+  exit 1
+fi
+
+BUCKET_NAME=$1
+
+aws s3 sync $CURRENT_DIR s3://$BUCKET_NAME/ 

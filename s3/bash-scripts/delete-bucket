@@ -1,1 +1,14 @@
 #!/usr/bin/env bash
+
+#check for bucket name, -z "$1" est vrai si le 1er agument est vide...
+if [ -z "$1" ]; then
+  echo "Please add a bucket name"
+  exit 1
+fi
+
+# https://awscli.amazonaws.com/v2/documentation/api/2.1.29/reference/s3api/create-bucket.html
+BUCKET_NAME=$1
+
+echo "==delete bucket $BUCKET_NAME..."
+
+aws s3api delete-bucket --bucket $BUCKET_NAME

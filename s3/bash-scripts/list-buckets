@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "== list-buckets..."
+
+#List buckets and query and using JMESPath to sort
+#https://jmespath.org/
+
+aws s3api list-buckets \
+--query "Buckets[] | sort_by(@, &CreationDate) | reverse(@)[].{Name: Name, CreationDate: CreationDate}" \
+--output table
+

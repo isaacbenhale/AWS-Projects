@@ -1,1 +1,13 @@
-#! #!/usr/bin/env bash
+#!/usr/bin/env bash
+CURRENT_DIR=./s3/bash-scripts/FILES
+
+echo "==creating folder..."
+mkdir -p "$CURRENT_DIR"
+
+echo "==creating files..."
+for i in {1..5}; do
+  touch "$CURRENT_DIR/fichier$i.txt"
+  echo "Working on bash-scripting with the file $i" > "$CURRENT_DIR/fichier$i.txt"
+done
+
+tree $CURRENT_DIR
