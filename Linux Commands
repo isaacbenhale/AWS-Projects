@@ -19,3 +19,6 @@ rpm -q nginx
 
 # INSTALLER NMAP COMMAND POUR VERIFIER LES PORTS OUVERTS
 sudo yum install -y nmap
+
+#VERIFIER LES PORTS 22 et 80
+nmap -Pn -p 22,80 -sV -v 34.220.220.184
