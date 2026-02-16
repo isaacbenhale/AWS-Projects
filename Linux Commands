@@ -1,0 +1,3 @@
+# Vérifie ta version
+cat /etc/os-release
+
