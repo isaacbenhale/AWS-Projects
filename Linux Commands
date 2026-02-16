@@ -1,3 +1,21 @@
 # Vérifie ta version
 cat /etc/os-release
 
+Si tu vois :
+Amazon Linux 2 → utilise yum
+Amazon Linux 2023 → utilise dnf
+
+✅ Amazon Linux 2 (yum)
+🔎 Vérifier si un package est installé
+yum list installed | grep nom-du-paquet
+
+Exemple :
+yum list installed | grep nginx
+
+🎯 Méthode plus propre
+rpm -q nom-du-paquet
+Exemple :
+rpm -q nginx
+
+# INSTALLER NMAP COMMAND POUR VERIFIER LES PORTS OUVERTS
+sudo yum install -y nmap
