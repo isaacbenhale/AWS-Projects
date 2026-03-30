@@ -11,7 +11,6 @@ fi
 # https://awscli.amazonaws.com/v2/documentation/api/2.1.29/reference/s3api/create-bucket.html
 
 aws s3api create-bucket --bucket $1 \
---region ca-central-1 \
---create-bucket-configuration LocationConstraint=ca-central-1 \
+--region us-east-1 \
 --query Location \
 --output text \
