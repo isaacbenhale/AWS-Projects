@@ -1,17 +1,14 @@
 {
-  "name": "examPro labs",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "name": "aws_labs",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
 
   "features": {
     "ghcr.io/devcontainers/features/aws-cli:1": {},
     "ghcr.io/devcontainers/features/terraform:1": {},
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.11"
-    },
     "ghcr.io/devcontainers/features/git:1": {}
   },
 
-  "postCreateCommand": "terraform -version && aws --version && python3 --version",
+  "postCreateCommand": "terraform --version && aws --version && python3 --version",
 
   "customizations": {
     "vscode": {
